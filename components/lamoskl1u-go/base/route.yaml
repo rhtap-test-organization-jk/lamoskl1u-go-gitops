@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: lamoskl1u-go
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: lamoskl1u-go 
+  name: lamoskl1u-go
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: lamoskl1u-go
+    weight: 100 
